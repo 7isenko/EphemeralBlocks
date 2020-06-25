@@ -1,0 +1,14 @@
+# Values aren't validate, so any mistakes may cause crashes.
+# Значения не проверяются, поэтому ошибки в них могут крашнуть плагин.
+
+# Время, по прошествию которого блоки ломаются (в секундах)
+# seconds
+timeToBreak: 10
+
+# Неломаемые блоки:
+unbreakableBlocks:
+  - FURNACE
+  - CAMPFIRE
+  - BLAST_FURNACE
+  - SMOKER
+  - OBSIDIAN
