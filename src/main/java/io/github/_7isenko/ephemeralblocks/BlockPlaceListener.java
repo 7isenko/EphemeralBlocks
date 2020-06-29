@@ -1,11 +1,11 @@
 package io.github._7isenko.ephemeralblocks;
 
-import net.minecraft.server.v1_15_R1.*;
+import net.minecraft.server.v1_16_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_15_R1.CraftWorld;
-import org.bukkit.craftbukkit.v1_15_R1.util.CraftMagicNumbers;
+import org.bukkit.craftbukkit.v1_16_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_16_R1.util.CraftMagicNumbers;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
@@ -27,8 +27,8 @@ public class BlockPlaceListener implements Listener {
                 if (event.getBlockPlaced().getType() == Material.AIR)
                     return;
                 Block block = CraftMagicNumbers.getBlock(event.getBlockPlaced().getType());
-                SoundEffectType set = block.getBlockData().r();
-                Field f = set.getClass().getDeclaredField("z");
+                SoundEffectType set = block.getBlockData().getStepSound();
+                Field f = set.getClass().getDeclaredField("X");
                 f.setAccessible(true);
                 SoundEffect se = (SoundEffect) f.get(set);
                 Location location = event.getBlockPlaced().getLocation();
